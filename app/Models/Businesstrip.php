@@ -11,6 +11,7 @@ class Businesstrip extends Model
 {
     use HasFactory;
 
+    private static $paginate = 10;
     protected $fillable = ['businessTripID', 'businessTripDays', 'businessTripMonth', 'businessTripYear', 'employeeID'];
 
     public static function findAll(Request $request){
@@ -18,7 +19,7 @@ class Businesstrip extends Model
         for ($i = 0; $i < count($employees); $i++) {
             $arrayId[$i] = $employees[$i]->employeeID;
         }
-        return DB::table('businesstrips')->whereIn('employeeID', $arrayId)->get();
+        return DB::table('businesstrips')->whereIn('employeeID', $arrayId)->paginate(self::$paginate);
     }
 
     public static function create(Request $request){

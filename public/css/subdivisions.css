@@ -13,21 +13,49 @@
 
 .page-table-wrapper {
     background-color: white;
-    height: 82%;
+    position: fixed;
+    width: 85%;
+    height: 85%;
     margin: 0 20px 0 270px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .content-table {
+    width: 90%;
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
+    margin: 20px 20px 0 20px;
+    font-size: 20px;
     min-width: 400px;
 }
 
 .content-table thead tr {
-    background-color: #C7CADD;
     color: black;
     text-align: left;
+}
+
+.content-table tbody .gray-row {
+    background-color: 	#E0E0E0;
+}
+
+.content-table tbody td {
+    line-height: 60px;
+}
+
+.content-table tbody td button {
+    background-color: #9966cc;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    width: 170px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.table-buttons-wrapper {
+    display: flex;
+    margin-top: 10px;
 }
 
 .page-table-wrapper button {
@@ -38,10 +66,10 @@
 
 .add-button {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     font-size: 20px;
-    width: 200px;
+    width: 250px;
     height: 50px;
     border-radius: 5px;
     margin: 20px;
@@ -55,12 +83,62 @@
     height: 20px;
 }
 
+hr {
+    border: 1px solid #C0C0C0;
+}
+
+#button-hospital, #button-btrip {
+    width: 270px;
+}
+
 /* create */
 
-.back-to-previous {
-    margin-left: 270px;
+.create-wrapper {
+    margin-left: 250px;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-previous a:active {
+    color: black;
 }
 
 .create-block {
-    margin-left: 270px;
+    margin-top: 20px;
+    background-color: white;
+    width: 30%;
+    min-height: 200px;
+    padding: 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.create-block hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-block-line {
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 45px;
+}
+
+.form-block-line p {
+    margin-bottom: 10px;
+}
+
+.form-block-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-block-buttons button, .form-block-buttons a {
+    width: 200px;
 }

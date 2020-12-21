@@ -11,6 +11,7 @@ class Hospital extends Model
 {
     use HasFactory;
 
+    private static $paginate = 10;
     protected $fillable = ['hospitalID', 'hospitalDays', 'hospitalMonth', 'hospitalYear', 'employeeID'];
 
     public static function findAll(Request $request){
@@ -18,7 +19,7 @@ class Hospital extends Model
         for ($i = 0; $i < count($employees); $i++) {
             $arrayId[$i] = $employees[$i]->employeeID;
         }
-        return DB::table('hospitals')->whereIn('employeeID', $arrayId)->get();
+        return DB::table('hospitals')->whereIn('employeeID', $arrayId)->paginate(self::$paginate);
     }
 
     public static function create(Request $request){

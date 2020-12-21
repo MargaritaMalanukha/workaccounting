@@ -6,18 +6,19 @@
         <h1 class="page-title">Лікарняні <span>Усі лікарняні, що були взяті робітниками компанії.</span></h1>
     </section>
     <section class="page-table-wrapper">
-        <a href="{{ route("hospitals.create") }}" class="add-button">
-            <img src="{{ asset('img/add_white.svg') }}">Add hospital
+        <a href="{{ route("hospitals.create") }}" class="add-button" id="button-hospital">
+            <img src="{{ asset('img/add_white.svg') }}">Додати лікарняний
         </a>
+        <hr/>
         <table class="content-table">
             <thead>
             <tr>
-                <th>№</th>
+                <th>Номер лікарняного</th>
                 <th>Кількість пропущених днів</th>
                 <th>Місяць</th>
                 <th>Рік</th>
                 <th>Робітник</th>
-                <th>Actions</th>
+                <th>Дії</th>
             </tr>
             </thead>
             <tbody>
@@ -28,12 +29,12 @@
                     <td>{{ $hospital->hospitalMonth }}</td>
                     <td>{{ $hospital->hospitalYear }}</td>
                     <td>{{ $hospital->employeeID }}</td>
-                    <td>
-                        <a href="{{ route("hospitals.edit", $hospital->hospitalID) }}"><button type="submit">Edit</button></a>
+                    <td class="table-buttons-wrapper">
+                        <a href="{{ route("hospitals.edit", $hospital->hospitalID) }}"><button type="submit">Редагувати</button></a>
                         <form method="POST" action="{{ route("hospitals.destroy", $hospital->hospitalID) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Delete</button>
+                            <button type="submit">Видалити</button>
                         </form>
                     </td>
                 </tr>

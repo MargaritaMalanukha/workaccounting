@@ -7,15 +7,17 @@
     </section>
     <section class="page-table-wrapper">
         <a href="{{ route("employees.create") }}" class="add-button">
-            <img src="{{ asset('img/add_white.svg') }}">Add employee
+            <img src="{{ asset('img/add_white.svg') }}">Додати робітника
         </a>
+        <hr/>
         <table class="content-table">
             <thead>
             <tr>
-                <th>№</th>
+                <th>Номер робітника</th>
                 <th>Дані о робітниках</th>
+                <th>Кількість робочих днів за місяць</th>
                 <th>Підрозділ</th>
-                <th>Actions</th>
+                <th>Дії</th>
             </tr>
             </thead>
             <tbody>
@@ -23,13 +25,14 @@
                 <tr>
                     <td>{{ $employee->employeeID }}</td>
                     <td>{{ $employee->employeeData }}</td>
+                    <td>{{ $employee->employeeWorkingDays }}</td>
                     <td>{{ $employee->subdivisionID }}</td>
-                    <td>
-                        <a href="{{ route("employees.edit", $employee->employeeID) }}"><button type="submit">Edit</button></a>
+                    <td class="table-buttons-wrapper">
+                        <a href="{{ route("employees.edit", $employee->employeeID) }}"><button type="submit">Редагувати</button></a>
                         <form method="POST" action="{{ route("employees.destroy", $employee->employeeID) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Delete</button>
+                            <button type="submit">Видалити</button>
                         </form>
                     </td>
                 </tr>

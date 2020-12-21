@@ -9,15 +9,16 @@
         <a href="{{ route("vacations.create") }}" class="add-button">
             <img src="{{ asset('img/add_white.svg') }}">Додати відпустку
         </a>
+        <hr/>
         <table class="content-table">
             <thead>
             <tr>
-                <th>№</th>
-                <th>Кількість пропущених днів</th>
+                <th>Номер відпустки</th>
+                <th>Кількість відпусток</th>
                 <th>Місяць</th>
                 <th>Рік</th>
                 <th>Робітник</th>
-                <th>Actions</th>
+                <th>Дії</th>
             </tr>
             </thead>
             <tbody>
@@ -28,12 +29,12 @@
                     <td>{{ $vacation->vacationMonth }}</td>
                     <td>{{ $vacation->vacationYear }}</td>
                     <td>{{ $vacation->employeeID }}</td>
-                    <td>
-                        <a href="{{ route("vacations.edit", $vacation->vacationID) }}"><button type="submit">Edit</button></a>
+                    <td class="table-buttons-wrapper">
+                        <a href="{{ route("vacations.edit", $vacation->vacationID) }}"><button type="submit">Редагувати</button></a>
                         <form method="POST" action="{{ route("vacations.destroy", $vacation->vacationID) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Delete</button>
+                            <button type="submit">Видалити</button>
                         </form>
                     </td>
                 </tr>

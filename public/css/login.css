@@ -50,3 +50,7 @@
     align-items: center;
 }
 
+.authorization-block p a {
+    color: black;
+}
+

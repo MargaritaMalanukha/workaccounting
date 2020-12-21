@@ -13,7 +13,7 @@ class AuthController extends Controller
         $user = self::auth($request);
         $data = (array) $user;
         $request->session()->put('data', $data);
-        return redirect('/dashboard');
+        return redirect('/timesheets');
     }
 
     public function register(Request $request) {
@@ -22,7 +22,7 @@ class AuthController extends Controller
         $user = self::auth($request);
         $data = (array) $user;
         $request->session()->put('data', $data);
-        return redirect('/dashboard');
+        return redirect('/timesheets');
     }
 
     public function auth(Request $request){

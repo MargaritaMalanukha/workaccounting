@@ -7,15 +7,16 @@
     </section>
     <section class="page-table-wrapper">
         <a href="{{ route("subdivisions.create") }}" class="add-button">
-            <img src="{{ asset('img/add_white.svg') }}">Add subdivision
+            <img src="{{ asset('img/add_white.svg') }}">Додати підрозділ
         </a>
+        <hr/>
         <table class="content-table">
             <thead>
                 <tr>
-                    <th>№</th>
+                    <th>Номер підрозділу</th>
                     <th>Назва підрозділу</th>
                     <!-- ещё можно количество сотрудников -->
-                    <th>Actions</th>
+                    <th>Дії</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,12 +24,12 @@
                 <tr>
                     <td>{{ $subdivision->subdivisionID }}</td>
                     <td>{{ $subdivision->subdivisionName }}</td>
-                    <td>
-                        <a href="{{ route("subdivisions.edit", $subdivision->subdivisionID) }}"><button type="submit">Edit</button></a>
+                    <td class="table-buttons-wrapper">
+                        <a href="{{ route("subdivisions.edit", $subdivision->subdivisionID) }}"><button type="submit">Редагувати</button></a>
                         <form method="POST" action="{{ route("subdivisions.destroy", $subdivision->subdivisionID) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Delete</button>
+                            <button type="submit">Видалити</button>
                         </form>
                     </td>
                 </tr>

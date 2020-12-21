@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset("css/dashboard.css") }}">
     <link rel="stylesheet" type="text/css" href="{{ asset("css/normalize.css") }}">
     <link rel="stylesheet" type="text/css" href="{{ asset("css/subdivisions.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/timesheets.css") }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -14,7 +15,6 @@
 <body>
     <div class="sidebar">
         <ul>
-            <li><a href="/dashboard"><img src='{{ asset("img/home.svg") }}'><p>Головна</p></a></li>
             <li><a href="/timesheets"><img src='{{ asset("img/document.svg") }}'><p>Табелі</p></a></li>
             <li><a href="/subdivisions"><img src='{{ asset("img/business.svg") }}'><p>Підрозділи</p></a></li>
             <li><a href="/employees"><img src='{{ asset("img/profile.svg") }}'><p>Робітники</p></a></li>

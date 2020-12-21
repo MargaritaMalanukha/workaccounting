@@ -11,6 +11,7 @@ class Subdivision extends Model
 {
     use HasFactory;
 
+    private static $paginate = 10;
     protected $fillable = ['subdivisionID', 'subdivisionName', 'companyId'];
 
     public static function create(Request $request) {
@@ -37,7 +38,7 @@ class Subdivision extends Model
     public static function findAll(Request $request)
     {
         $companyId = $request->session()->get('data.companyId');
-       return DB::table('subdivisions')->where('companyId', '=', $companyId)->get();
+       return DB::table('subdivisions')->where('companyId', '=', $companyId)->paginate(self::$paginate);
     }
 
 }

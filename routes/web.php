@@ -31,7 +31,6 @@ Route::post('/register', 'App\Http\Controllers\AuthController@register');
  * Dashboard page and timesheets page.
  */
 
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 Route::get('/timesheets', 'App\Http\Controllers\TimesheetController@index');
 Route::get('/logout', 'App\Http\Controllers\AuthController@logout');
 
@@ -46,3 +45,12 @@ Route::resource('/absents', 'App\Http\Controllers\AbsentController');
 Route::resource('/vacations', 'App\Http\Controllers\VacationController');
 Route::resource('/businesstrips', 'App\Http\Controllers\BusinessTripController');
 Route::resource('/hospitals', 'App\Http\Controllers\HospitalController');
+
+/**
+ * Routes for timesheets
+ */
+
+Route::get('/timesheets/list_by_subdivision', 'App\Http\Controllers\TimesheetController@listBySubdivision');
+Route::get('/timesheets/list_of_all_employees', 'App\Http\Controllers\TimesheetController@listOfAllEmployees');
+Route::get('/timesheets/absent_list_by_subdivision','App\Http\Controllers\TimesheetController@listOfAbsentsBySubdivision');
+Route::get('/timesheets/list_of_recently_ill', 'App\Http\Controllers\TimesheetController@listOfRecentlyIll');

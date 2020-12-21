@@ -11,27 +11,30 @@ class Employee extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['employeeID', 'employeeData', 'subdivisionID'];
+    private static $paginate = 10;
+    protected $fillable = ['employeeID', 'employeeData', 'employeeWorkingDays', 'subdivisionID'];
 
     public static function findAll(Request $request) {
         $subdivisions = Subdivision::findAll($request);
         for ($i = 0; $i < count($subdivisions); $i++) {
             $arrayId[$i] = $subdivisions[$i]->subdivisionID;
         }
-        return DB::table('employees')->whereIn('subdivisionID', $arrayId)->get();
+        return DB::table('employees')->whereIn('subdivisionID', $arrayId)->paginate(self::$paginate);
     }
 
     public static function create(Request $request) {
         DB::table('employees')->insert([
             'employeeData' => $request->input('employeeData'),
-            'subdivisionID' => $request->input('subdivisionID')
+            'subdivisionID' => $request->input('subdivisionID'),
+            'employeeWorkingDays' => $request->input('employeeWorkingDays')
         ]);
     }
 
     public static function updateE(Request $request, $id) {
         DB::table('employees')->where('employeeID', '=', $id)->update([
             'employeeData' => $request->input('employeeData'),
-            'subdivisionID' => $request->input('subdivisionID')
+            'subdivisionID' => $request->input('subdivisionID'),
+            'employeeWorkingDays' => $request->input('employeeWorkingDays')
         ]);
     }
 
