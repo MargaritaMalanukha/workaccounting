@@ -19,7 +19,7 @@ class Employee extends Model
         for ($i = 0; $i < count($subdivisions); $i++) {
             $arrayId[$i] = $subdivisions[$i]->subdivisionID;
         }
-        return DB::table('employees')->whereIn('subdivisionID', $arrayId)->paginate(self::$paginate);
+        return DB::table('employees')->whereIn('subdivisionID', $arrayId)->get();
     }
 
     public static function create(Request $request) {
@@ -45,5 +45,9 @@ class Employee extends Model
 
     public static function deleteE($id) {
         DB::table('employees')->where('employeeID', '=', $id)->delete();
+    }
+
+    public static function findBySubdivisionID($subdivisionID) {
+        return DB::table('employees')->where('subdivisionID', '=', $subdivisionID)->get();
     }
 }

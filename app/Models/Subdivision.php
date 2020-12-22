@@ -38,7 +38,7 @@ class Subdivision extends Model
     public static function findAll(Request $request)
     {
         $companyId = $request->session()->get('data.companyId');
-       return DB::table('subdivisions')->where('companyId', '=', $companyId)->paginate(self::$paginate);
+       return DB::table('subdivisions')->where('companyId', '=', $companyId)->get();
     }
 
 }

@@ -19,7 +19,7 @@ class Absent extends Model
         for ($i = 0; $i < count($employees); $i++) {
             $arrayId[$i] = $employees[$i]->employeeID;
         }
-        return DB::table('absents')->whereIn('employeeID', $arrayId)->paginate(self::$paginate);
+        return DB::table('absents')->whereIn('employeeID', $arrayId)->get();
     }
 
     public static function create(Request $request){
