@@ -21,12 +21,12 @@
                 <input name="hospitalMonth">
             </div>
             <div class="form-block-line">
-                <p>Год</p>
+                <p>Рік</p>
                 <input name="hospitalYear">
             </div>
             <div class="form-block-line">
-                <p>Номер робітника</p>
-                <input name="employeeID">
+                <p>Прізвище робітника</p>
+                <input name="employeeSurname">
             </div>
             <div class="form-block-buttons">
                 <button type="submit" class="add-button">Save and back</button>

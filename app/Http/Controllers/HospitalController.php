@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\Hospital;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,12 @@ class HospitalController extends Controller
     {
         if (!User::isAuthorized($request)) return redirect('/login');
         $hospitals = Hospital::findAll($request);
-        return view('hospitals.hospitals')->with('hospitals', $hospitals);
+        for ($i = 0; $i < count($hospitals); $i++) {
+            $employees[$i] = Employee::findById($hospitals[$i]->employeeID);
+        }
+        return view('hospitals.hospitals')
+            ->with('hospitals', $hospitals)
+            ->with('employees', $employees);
     }
 
     /**
@@ -60,7 +66,10 @@ class HospitalController extends Controller
     public function edit(int $id)
     {
         $hospital = Hospital::findById($id);
-        return view('hospitals.edit')->with('hospital', $hospital);
+        $employee = Employee::findById($hospital->employeeID);
+        return view('hospitals.edit')
+            ->with('hospital', $hospital)
+            ->with('employee', $employee);
     }
 
     /**

@@ -23,20 +23,22 @@ class Hospital extends Model
     }
 
     public static function create(Request $request){
+        $employee = Employee::findBySurname($request->input('employeeSurname'));
         DB::table('hospitals')->insert([
             'hospitalDays' => $request->input('hospitalDays'),
             'hospitalMonth' => $request->input('hospitalMonth'),
             'hospitalYear' => $request->input('hospitalYear'),
-            'employeeID' => $request->input('employeeID')
+            'employeeID' => $employee->employeeID
         ]);
     }
 
     public static function updateH(Request $request, $id) {
+        $employee = Employee::findBySurname($request->input('employeeSurname'));
         DB::table('hospitals')->where('hospitalID', '=', $id)->update([
             'hospitalDays' => $request->input('hospitalDays'),
             'hospitalMonth' => $request->input('hospitalMonth'),
             'hospitalYear' => $request->input('hospitalYear'),
-            'employeeID' => $request->input('employeeID')
+            'employeeID' => $employee->employeeID
         ]);
     }
 

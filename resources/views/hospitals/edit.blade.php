@@ -25,8 +25,8 @@
                     <input name="hospitalYear" value={{ $hospital->hospitalYear }}>
                 </div>
                 <div class="form-block-line">
-                    <p>ID робітника</p>
-                    <input name="employeeID" value={{ $hospital->employeeID }}>
+                    <p>Фамілія робітника</p>
+                    <input name="employeeSurname" value={{ $employee->employeeData }}>
                 </div>
                 <div class="form-block-buttons">
                     <button type="submit" class="add-button">Save and back</button>

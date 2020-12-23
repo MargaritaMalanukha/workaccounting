@@ -17,7 +17,8 @@
                 <th>Кількість пропущених днів</th>
                 <th>Місяць</th>
                 <th>Рік</th>
-                <th>Робітник</th>
+                <th>Номер робітника</th>
+                <th>Особисті дані</th>
                 <th>Дії</th>
             </tr>
             </thead>
@@ -28,7 +29,8 @@
                     <td>{{ $hospital->hospitalDays }}</td>
                     <td>{{ $hospital->hospitalMonth }}</td>
                     <td>{{ $hospital->hospitalYear }}</td>
-                    <td>{{ $hospital->employeeID }}</td>
+                    <td style="text-align: center">{{ $hospital->employeeID }}</td>
+                    <td>{{ $employees[$loop->index]->employeeData }}</td>
                     <td class="table-buttons-wrapper">
                         <a href="{{ route("hospitals.edit", $hospital->hospitalID) }}"><button type="submit">Редагувати</button></a>
                         <form method="POST" action="{{ route("hospitals.destroy", $hospital->hospitalID) }}">

@@ -50,4 +50,9 @@ class Employee extends Model
     public static function findBySubdivisionID($subdivisionID) {
         return DB::table('employees')->where('subdivisionID', '=', $subdivisionID)->get();
     }
+
+    public static function findBySurname($employeeSurname)
+    {
+        return DB::table('employees')->where('employeeData', 'like', $employeeSurname . '%')->first();
+    }
 }
